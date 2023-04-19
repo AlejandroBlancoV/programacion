@@ -39,6 +39,10 @@ public class Camion extends Vehiculo {
         this.NumeroDeEjes = NumeroDeEjes;
     }
 
+    public double pagarRodaje() {
+        return super.pagarRodaje() + 2.17 * getCilindrada();
+    }
+
     @Override
     public String toString() {
         return "Camion [NumeroDeEjes=" + NumeroDeEjes + "ColorVehiculo=" + ColorVehiculo + ", NumRuedas=" + NumRuedas

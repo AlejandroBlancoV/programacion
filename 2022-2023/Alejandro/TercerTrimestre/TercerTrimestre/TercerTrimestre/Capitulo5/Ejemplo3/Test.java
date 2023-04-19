@@ -13,7 +13,7 @@ public class Test {
                 (byte) 2, (short) 4000, (short) 300);
         Camion CamionEnorme = new Camion(Color.red, (byte) 24,
                 (byte) 6, (short) 15000, (short) 800);
-
+        Coche Zito = new Coche(Color.cyan, (byte) 4, (short) 12, (short) 104, 5);
         ArrayList<Vehiculo> lista = new ArrayList<Vehiculo>();
         lista.add(vehiculo);
         lista.add(MotoBarata);
@@ -21,8 +21,10 @@ public class Test {
         lista.add(MotoCara);
         lista.add(CamionNormal);
         lista.add(CamionEnorme);
+        lista.add(Zito);
         for (Vehiculo v : lista) {
             System.out.println(v);
+            System.out.println("a pagar: " + v.pagarRodaje());
         }
 
         MotoBarata.setNumeroDePlazas((byte) 1);

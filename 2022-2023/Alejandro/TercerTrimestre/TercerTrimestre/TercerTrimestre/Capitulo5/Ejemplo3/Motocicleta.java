@@ -34,8 +34,8 @@ public class Motocicleta extends Vehiculo {
         this.NumeroDePlazas = NumeroDePlazas;
     }
 
-    public double pagarRodaje(){
-        return 53.27d+ 
+    public double pagarRodaje() {
+        return super.pagarRodaje() + 1.24 * getPotencia();
     }
 
     @Override
