@@ -65,6 +65,11 @@ public int compareTo(Object arg0) {
     return (int) Math.ceil(t.calculaArea()-this.calculaArea());
 }
 
+public double Perimetro(){
+    System.out.println("No se calcular el perimetro");
+    return super.Perimetro();
+}
+
 
 
 

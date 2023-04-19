@@ -53,4 +53,9 @@ public int compareTo(Object arg0) {
     else
     return (int) Math.ceil(r.calculaArea()-this.calculaArea());
 }
+
+public double Perimetro(){
+    super.Perimetro();
+    return 2*(Lados[0]+Lados[1]);
+}
 }

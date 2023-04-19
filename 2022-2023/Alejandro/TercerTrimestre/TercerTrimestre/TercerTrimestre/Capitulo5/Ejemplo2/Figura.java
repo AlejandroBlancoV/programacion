@@ -1,7 +1,7 @@
 package Capitulo5.Ejemplo2;
 import java.awt.Color;
 import java.util.Arrays;
-abstract public class Figura implements Comparable{
+abstract public class Figura implements Comparable,Perimetrosa{
     protected Color ColorFigura;
 protected int[] Posicion = new int[2];
 
@@ -41,6 +41,11 @@ public String toString() {
     return "Figura [ColorFigura=" + ColorFigura + ", Posicion=" + Arrays.toString(Posicion) + "]";
 }
 abstract public double calculaArea();
+
+public double Perimetro(){
+ System.out.println("esto es un metodo de la clase figura");
+ return 0;
+}
  
 
 }

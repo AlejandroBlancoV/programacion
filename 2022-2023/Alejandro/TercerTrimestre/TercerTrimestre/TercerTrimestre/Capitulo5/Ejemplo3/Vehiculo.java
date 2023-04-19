@@ -1,7 +1,7 @@
 
 import java.awt.Color;
 
-public class Vehiculo {
+public class Vehiculo implements Comparable{
     protected Color ColorVehiculo;
     protected byte NumRuedas;
     protected short Cilindrada;
@@ -66,4 +66,16 @@ public class Vehiculo {
                 + ", Potencia=" + Potencia + "]";
     }
 
+
+    public int compareTo(Object arg0){
+        Vehiculo v = (Vehiculo) arg0;
+        if(this.pagarRodaje()>v.pagarRodaje()){
+            return -1;
+        }
+        else if(this.pagarRodaje()==v.pagarRodaje()){
+            return 0;
+        }
+        else
+        return 1;
+    }
 }

@@ -46,5 +46,11 @@ public class Test {
 
 
         Collections.sort(lista);
+
+        for(Figura f: lista){
+            System.out.println(f);
+            System.out.println("perimetro: "+f.Perimetro());
+            System.out.println("Su area es: "+f.calculaArea());
+        }
     }
 }

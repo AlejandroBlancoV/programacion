@@ -43,13 +43,16 @@ public double calculaArea(){
 public int compareTo(Object arg0) {
     Figura c= (Figura) arg0;
     if(this.calculaArea()>c.calculaArea())
-    return (int) Math.ceil(this.calculaArea()- c.calculaArea());
+    return 1;
 
     else if(this.calculaArea()==c.calculaArea())
     return 0;
 
     else
-    return (int) Math.ceil(c.calculaArea()-this.calculaArea());
+    return -1;
 }
-
+public double Perimetro(){
+    super.Perimetro();
+    return 2*Math.PI*Radio;
+}
 }

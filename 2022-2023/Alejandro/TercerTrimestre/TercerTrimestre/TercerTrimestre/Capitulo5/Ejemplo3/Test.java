@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Test {
     public static void main(String[] args) {
@@ -26,7 +27,11 @@ public class Test {
             System.out.println(v);
             System.out.println("a pagar: " + v.pagarRodaje());
         }
-
+        Collections.sort(lista);
+        for (Vehiculo v : lista) {
+            System.out.println(v);
+            System.out.println("a pagar: " + v.pagarRodaje());
+        }
         MotoBarata.setNumeroDePlazas((byte) 1);
         System.out.println(MotoBarata.getNumeroDePlazas());
         System.out.println(MotoBarata2.getCilindrada());
