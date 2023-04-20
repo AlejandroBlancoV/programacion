@@ -1,5 +1,6 @@
-
+package Capitulo5.Ejemplo3;
 import java.awt.Color;
+import java.util.Scanner;
 
 public class Camion extends Vehiculo {
 
@@ -41,6 +42,21 @@ public class Camion extends Vehiculo {
 
     public double pagarRodaje() {
         return super.pagarRodaje() + 2.17 * getCilindrada();
+    }
+
+    @Override
+    public double pagarCarburante() {
+        // TODO Auto-generated method stub
+
+        return super.pagarCarburante()+GASOLINA*pideLitros();
+        
+    }
+
+    public double pideLitros(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("numero de litros");
+        double litros = sc.nextDouble();
+        return litros;
     }
 
     @Override

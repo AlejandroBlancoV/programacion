@@ -1,7 +1,8 @@
-
+package Capitulo5.Ejemplo3;
 import java.awt.Color;
+import java.util.Scanner;
 
-public class Vehiculo implements Comparable{
+public class Vehiculo implements Comparable, EstacionServicio{
     protected Color ColorVehiculo;
     protected byte NumRuedas;
     protected short Cilindrada;
@@ -77,5 +78,27 @@ public class Vehiculo implements Comparable{
         }
         else
         return 1;
+    }
+
+    @Override
+    public double pagarCarburante(){
+        System.out.println("impuesto general a todos");
+        return 1.55;
+    }
+
+    public double pideLitros(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("numero de litros");
+        double litros = sc.nextDouble();
+        return litros;
+    }
+    public boolean esDiesel(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("es Diesel");
+        char respuesta = sc.nextLine().charAt(0);
+       if(respuesta=='s')
+       return true;
+       else
+       return false;
     }
 }
