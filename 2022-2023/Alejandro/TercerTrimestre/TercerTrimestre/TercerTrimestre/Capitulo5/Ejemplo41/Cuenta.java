@@ -17,7 +17,7 @@ public class Cuenta {
         NumeroConsignaciones++;
     }
 
-    public void Retirar(int cantidad){
+    public void Retirar(float cantidad){
         if(Saldo>=cantidad){
             Saldo-=cantidad;
             NumeroRetiros++;
@@ -27,9 +27,63 @@ public class Cuenta {
         System.out.println("no puede retirar dicha cantidad");
     }
 
-    public calcularInteres(){
-        float TasaMensual= TasaAnual/12;
-        float InteresMensual= Saldo*TasaMensual;
+    public void calcularInteres(){
+        float InteresMensual= Saldo*(TasaAnual/12);
         Saldo+=InteresMensual;
     }
+
+    public void extractoMensual(){
+        Saldo-=Comision;
+        calcularInteres();
+    }
+
+    
+
+    public float getSaldo() {
+        return Saldo;
+    }
+
+    public void setSaldo(float saldo) {
+        Saldo = saldo;
+    }
+
+    public int getNumeroConsignaciones() {
+        return NumeroConsignaciones;
+    }
+
+    public void setNumeroConsignaciones(int numeroConsignaciones) {
+        NumeroConsignaciones = numeroConsignaciones;
+    }
+
+    public int getNumeroRetiros() {
+        return NumeroRetiros;
+    }
+
+    public void setNumeroRetiros(int numeroRetiros) {
+        NumeroRetiros = numeroRetiros;
+    }
+
+    public float getTasaAnual() {
+        return TasaAnual;
+    }
+
+    public void setTasaAnual(float tasaAnual) {
+        TasaAnual = tasaAnual;
+    }
+
+    public float getComision() {
+        return Comision;
+    }
+
+    public void setComision(float comision) {
+        Comision = comision;
+    }
+
+    @Override
+    public String toString() {
+        return "Cuenta [Saldo=" + Saldo + ", NumeroConsignaciones=" + NumeroConsignaciones + ", NumeroRetiros="
+                + NumeroRetiros + ", TasaAnual=" + TasaAnual + ", Comision=" + Comision + "]";
+    }
+
+    
 }
