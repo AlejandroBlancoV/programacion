@@ -13,9 +13,10 @@ public class Vivienda extends Inmueble{
 
     @Override
     public String toString() {
-        return "Vivienda [numHabitaciones=" + numHabitaciones + ", numBaños=" + numBaños + "idTipo=" + idTipo + ", area=" + area + ", direccion=" + direccion + ", precio=" + precio
-        + "]";
+        return super.toString()+ "Vivienda [numHabitaciones=" + numHabitaciones + ", numBaños=" + numBaños + "]";
     }
+
+    
 
     
     

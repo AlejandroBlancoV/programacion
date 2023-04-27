@@ -10,8 +10,9 @@ public class Casa extends Vivienda {
 
     @Override
     public String toString() {
-        return "Casa [numPisos=" + numPisos + "numHabitaciones=" + numHabitaciones + ", numBaños=" + numBaños + "]";
+        return super.toString()+"Casa [numPisos=" + numPisos + "]";
     }
+
 
 
 }

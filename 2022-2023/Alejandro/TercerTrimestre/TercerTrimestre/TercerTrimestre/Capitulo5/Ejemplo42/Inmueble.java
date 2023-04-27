@@ -5,6 +5,7 @@ public class Inmueble {
     protected int area;
     protected String direccion;
     protected double precio;
+    protected double precioventa;
 
 
    
@@ -19,7 +20,8 @@ public class Inmueble {
 
 
     public double calculaPrecioVenta(double valorArea){
-        return 0d;
+        precioventa=area*valorArea;
+        return precioventa;
     }
 
 
@@ -27,10 +29,14 @@ public class Inmueble {
 
     @Override
     public String toString() {
-        return "Inmueble [idTipo=" + idTipo + ", area=" + area + ", direccion=" + direccion + ", precio=" + precio
+        return super.toString()+ "Inmueble [idTipo=" + idTipo + ", area=" + area + ", direccion=" + direccion + ", precio=" + precio
                 + "]";
     }
 
+
+
+
+    
     
     
 }

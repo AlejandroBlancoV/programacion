@@ -6,5 +6,12 @@ public class Urbana extends Casa{
         super(idTipo, area, direccion, numHabitaciones, numBaños, numPisos);
         //TODO Auto-generated constructor stub
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+ "Urbana []";
+    }
     
+    
+
 }
