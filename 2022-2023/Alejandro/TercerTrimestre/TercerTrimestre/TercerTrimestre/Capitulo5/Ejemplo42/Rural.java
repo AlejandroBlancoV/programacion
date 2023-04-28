@@ -3,7 +3,7 @@ package Capitulo5.Ejemplo42;
 
 
 public class Rural extends Casa{
-    protected static double valorArea=1500000;
+    //protected static double valorArea=1500000;
     protected int distanciaCarrera;
     protected int altitud;
 
@@ -12,6 +12,7 @@ public class Rural extends Casa{
         super(idTipo, area, direccion, numHabitaciones, numBaños, numPisos);
         this.distanciaCarrera = distanciaCarrera;
         this.altitud = altitud;
+        setValorArea(1500);
     }
 
     @Override

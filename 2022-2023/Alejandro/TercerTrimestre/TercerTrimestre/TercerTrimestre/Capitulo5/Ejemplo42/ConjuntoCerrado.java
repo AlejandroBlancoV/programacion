@@ -1,7 +1,7 @@
 package Capitulo5.Ejemplo42;
 
 public class ConjuntoCerrado extends Urbana{
-    protected static double valorArea=2500000;
+   // protected static double valorArea=2500000;
     protected double valorAdministracion;
     protected double tienePiscina;
     protected boolean tieneCamposDeportivos;
@@ -13,6 +13,7 @@ public class ConjuntoCerrado extends Urbana{
         this.valorAdministracion = valorAdministracion;
         this.tienePiscina = tienePiscina;
         this.tieneCamposDeportivos = tieneCamposDeportivos;
+        setValorArea(10000);
     }
 
 

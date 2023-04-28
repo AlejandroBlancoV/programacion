@@ -13,7 +13,6 @@ public class Test {
         Estudio Enterprise = new Estudio(5, 100, "Avd Mario Kart", 12, 70);
         Familiar Pizza= new Familiar(6, 1, "soledad", 1000000000, 100000000, 0);
         Independiente Autonomo= new Independiente(7, 30, "Yupiii", 12, 9, 4);
-        
         terrenos.add(Inmueble);
         terrenos.add(Banco);
         terrenos.add(CasaPaco);
@@ -23,9 +22,11 @@ public class Test {
         terrenos.add(Autonomo);
         for(Inmueble i: terrenos ){
             System.out.println(i.toString());
-            System.out.println(i.calculaPrecioVenta(getValorArea()));
+           // System.out.println(i.calculaPrecio());               
         }
     }
+
+    
     
     
 }

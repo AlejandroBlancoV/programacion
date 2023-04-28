@@ -1,11 +1,14 @@
 package Capitulo5.Ejemplo42;
 
 public class Inmueble {
+
+    protected static double valorArea=0;
+
     protected int idTipo;
     protected int area;
     protected String direccion;
-    protected double precio;
-    protected double precioventa;
+   // protected double precio;
+    //protected double precioventa;
 
 
    
@@ -19,9 +22,23 @@ public class Inmueble {
 
 
 
-    public double calculaPrecioVenta(double valorArea){
-        precioventa=area*valorArea;
-        return precioventa;
+    public double calculaPrecio(double valorArea){
+        return  area*valorArea;
+        
+    }
+
+
+
+
+    public static double getValorArea() {
+        return valorArea;
+    }
+
+
+
+
+    public static void setValorArea(double valorArea) {
+        Inmueble.valorArea = valorArea;
     }
 
 
@@ -29,10 +46,13 @@ public class Inmueble {
 
     @Override
     public String toString() {
-        return super.toString()+ "Inmueble [idTipo=" + idTipo + ", area=" + area + ", direccion=" + direccion + ", precio=" + precio
-                + "]";
+        return "Inmueble [idTipo=" + idTipo + ", area=" + area + ", direccion=" + direccion + ",valor=" +valorArea +"]";
     }
 
+
+
+
+   
 
 
 

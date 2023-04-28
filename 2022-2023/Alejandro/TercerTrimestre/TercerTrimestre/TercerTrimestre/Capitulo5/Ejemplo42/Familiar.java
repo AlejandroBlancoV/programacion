@@ -1,7 +1,7 @@
 package Capitulo5.Ejemplo42;
 
 public class Familiar extends Apartamento{
-    protected static double valorArea=2000000;
+    //protected static double valorArea=2000000;
     protected int valorAdministracion;
 
 
@@ -9,6 +9,7 @@ public class Familiar extends Apartamento{
             int valorAdministracion) {
         super(idTipo, area, direccion, numHabitaciones, numBaños);
         this.valorAdministracion = valorAdministracion;
+        setValorArea(2000);
     }
 
 
