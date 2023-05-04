@@ -16,12 +16,26 @@ public class PerroPequeño extends Perros{
             this.raza = raza;
         }
 
-
+        
 
 
     @Override
     public String toString() {
         return super.toString()+"PerroPequeño [raza=" + raza + "]";
+    }
+
+
+
+
+    public razas getRaza() {
+        return raza;
+    }
+
+
+
+
+    public void setRaza(razas raza) {
+        this.raza = raza;
     }
 
 
