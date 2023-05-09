@@ -1,9 +1,15 @@
 package Capitulo5.Ejemplo48;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.ListIterator;
 import java.util.Scanner;
 
-import javax.swing.plaf.synth.SynthSpinnerUI;
+
+
+
 
 public class Equipo {
     private String nombre;
@@ -75,6 +81,28 @@ public class Equipo {
             totalTiempo += c.getTiempoAcumulado();
         }
     }
+
+    public void ordenaTiempo(){
+        Collections.sort(listaCiclistas, new Comparator<Ciclista>(){
+            public int compare(Ciclista c1, Ciclista c2 ){
+                return c1.getTiempoAcumulado()- c2.getTiempoAcumulado();
+            }
+
+        }
+        );
+        
+    ListIterator<Ciclista> iter= listaCiclistas.listIterator();
+    while(iter.hasNext()){
+       iter.next().setPosicionGeneral(iter.nextIndex());
+        iter.next();
+    
+    }
+    
+    }
+
+
+
+
 
     @Override
     public String toString() {

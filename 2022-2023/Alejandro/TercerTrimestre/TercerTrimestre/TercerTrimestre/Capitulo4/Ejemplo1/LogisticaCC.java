@@ -1,4 +1,4 @@
-package Ejemplo1;
+package Ejemplo19;
 
 public class LogisticaCC {
     private String Nombre;
