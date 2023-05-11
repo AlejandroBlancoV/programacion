@@ -1,5 +1,4 @@
 package Capitulo5.Ejemplo48;
-
 public class Escalador extends Ciclista {
     protected double aceleracionPromedio;
     protected double gradoRampa;

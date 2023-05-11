@@ -1,5 +1,4 @@
 package Capitulo5.Ejemplo48;
-
 public class Test {
     public static void main(String[] args) {
         Equipo equipo1 = new Equipo("Sky", "Estados Unidos");
@@ -24,6 +23,10 @@ public class Test {
         equipo2.añadirCiclista(contrarrelojista2);
         System.out.println("Antes de la prueba");
         equipo2.toString();
+
+        Carrera giro = new Carrera("giro", "italia");
+        giro.añadirEquipo(equipo1);
+        giro.añadirEquipo(equipo2);
 
 
         velocista1.setTiempoAcumulado(365);
@@ -50,6 +53,11 @@ public class Test {
 
         equipo1.ordenaTiempo();
         equipo2.ordenaTiempo();
+        
+        giro.clasificacionCiclistas();
+        System.out.println("clasificacion general ordenada");
+        
+        System.out.println(giro.clasificacion.toString());
 
     }
 

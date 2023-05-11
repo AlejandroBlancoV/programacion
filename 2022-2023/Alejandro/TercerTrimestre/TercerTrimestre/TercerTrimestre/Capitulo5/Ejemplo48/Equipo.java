@@ -1,5 +1,4 @@
 package Capitulo5.Ejemplo48;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -7,13 +6,10 @@ import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.Scanner;
 
-
-
-
-
 public class Equipo {
     private String nombre;
     private double totalTiempo = 0;
+    private int posicion=0;
     private String pais;
     private ArrayList<Ciclista> listaCiclistas;
 
@@ -21,6 +17,28 @@ public class Equipo {
         this.nombre = nombre;
         this.pais = pais;
         listaCiclistas = new ArrayList<>();
+    }
+
+    
+
+    public ArrayList<Ciclista> getListaCiclistas() {
+        return listaCiclistas;
+    }
+
+
+
+    public void setListaCiclistas(ArrayList<Ciclista> listaCiclistas) {
+        this.listaCiclistas = listaCiclistas;
+    }
+
+
+
+    public int getPosicion() {
+        return posicion;
+    }
+
+    public void setPosicion(int posicion) {
+        this.posicion = posicion;
     }
 
     public String getNombre() {
@@ -39,11 +57,11 @@ public class Equipo {
         this.pais = pais;
     }
 
-    public double getTotalTiempo() {
-        return totalTiempo;
+    public int getTotalTiempo() {
+        return (int) totalTiempo;
     }
 
-    private void setTotalTiempo(double totalTiempo) {
+    private void setTotalTiempo(int totalTiempo) {
         this.totalTiempo = totalTiempo;
     }
 
@@ -82,6 +100,7 @@ public class Equipo {
         }
     }
 
+    //ordenaPosiciones
     public void ordenaTiempo(){
         Collections.sort(listaCiclistas, new Comparator<Ciclista>(){
             public int compare(Ciclista c1, Ciclista c2 ){
@@ -107,6 +126,9 @@ public class Equipo {
     @Override
     public String toString() {
         return "Equipo [nombre=" + nombre + ", totalTiempo=" + totalTiempo + ", pais=" + pais + "]";
+    }
+
+    public void setPosicionGeneral(int nextIndex) {
     }
 
 }

@@ -1,5 +1,4 @@
 package Capitulo5.Ejemplo48;
-
 public class Contrarrelojista extends Ciclista {
     protected double velocidadMaxima;
 

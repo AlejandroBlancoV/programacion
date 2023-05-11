@@ -1,5 +1,4 @@
 package Capitulo5.Ejemplo48;
-
 public class Velocista extends Ciclista {
 
     protected double potenciaPromedio;
