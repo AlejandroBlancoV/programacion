@@ -1,0 +1,20 @@
+Estamos imprimiendo
+con nombre 0
+Estamos imprimiendo
+con nombre 1
+Estamos imprimiendo
+con nombre 2
+Estamos imprimiendo
+con nombre 3
+Estamos imprimiendo
+con nombre 4
+Estamos imprimiendo
+con nombre 5
+Estamos imprimiendo
+con nombre 6
+Estamos imprimiendo
+con nombre 7
+Estamos imprimiendo
+con nombre 8
+Estamos imprimiendo
+con nombre 9
