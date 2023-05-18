@@ -17,6 +17,13 @@ public class Asignatura  implements Serializable{
         this.nombre = nombre;
         this.creditos = creditos;
     }
+    
+
+    @Override
+    public String toString() {
+        return "Asignatura [codigo=" + codigo + ", nombre=" + nombre + ", creditos=" + creditos + "]";
+    }
+
 
     void imprimir(){
         System.out.println("Codigo de la asignatura = "+codigo);
