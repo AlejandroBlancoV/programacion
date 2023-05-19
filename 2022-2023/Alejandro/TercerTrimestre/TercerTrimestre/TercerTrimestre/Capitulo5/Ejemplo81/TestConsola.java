@@ -11,6 +11,8 @@ public class TestConsola {
         alumnos.listar();
         alumnos.añadirPersona(new Persona("Yanis", "Toy", "1234", "calle carajo 73"));
         alumnos.listar();
+        alumnos.añadirPersona(new Persona("Patxu", "Parte", "1234", "calle carajo 73"));
+        alumnos.listar();
 
         alumnos.eliminarPersona(4);
         alumnos.listar();
