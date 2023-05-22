@@ -112,6 +112,10 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 		/* Establece que se pueda seleccionar solamente un elemento de la lista */
 		listaNombres.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		modelo = new DefaultListModel();
+		//1 Obtengo los datos de fichero
+		lista=poblarLista();
+		//2 Tengo que usar el modelo para ir añadiendo personas al JList
+		
 		// Establece una barra de desplazamiento vertical
 		scrollLista = new JScrollPane();
 		// Establece la posición de la barra de desplazamiento vertical
