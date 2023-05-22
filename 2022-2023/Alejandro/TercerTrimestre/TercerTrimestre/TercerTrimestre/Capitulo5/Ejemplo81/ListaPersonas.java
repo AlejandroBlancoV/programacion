@@ -1,8 +1,9 @@
 package Capitulo5.Ejemplo81;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ListaPersonas {
+public class ListaPersonas implements Serializable{
     ArrayList<Persona> listaPersonas;
     public ListaPersonas(){
         listaPersonas= new ArrayList<>();

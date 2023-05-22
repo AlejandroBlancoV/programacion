@@ -3,6 +3,10 @@ package Capitulo5.Ejemplo81;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -22,7 +26,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 	private JLabel nombre, apellidos, teléfono, dirección;
 	// Campos de ingreso de texto
 	private JTextField campoNombre, campoApellidos, campoTeléfono, campoDirección;
-	private JButton añadir, eliminar, borrarLista; // Botones
+	private JButton añadir, eliminar, borrarLista, guardar; // Botones
 	private JList listaNombres; // Lista de personas
 	private DefaultListModel modelo; // Objeto que modela la lista
 	private JScrollPane scrollLista; // Barra de desplazamiento vertical
@@ -34,7 +38,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 		lista = new ListaPersonas(); // Crea la lista de personas
 		inicio();
 		setTitle("Personas"); // Establece el título de la ventana
-		setSize(270, 350); // Establece el tamaño de la ventana
+		setSize(470, 350); // Establece el tamaño de la ventana
 		setLocationRelativeTo(null); /* La ventana se posiciona en el centro de la pantalla */
 		// Establece que el botón de cerrar permitirá salir de la aplicación
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -96,6 +100,12 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 		borrarLista.setBounds(120, 280, 120, 23); /* Establece la posición del botón Borrar lista */
 		/* Agrega al botón un ActionListener para que gestione eventos del botón */
 		borrarLista.addActionListener(this);
+		// Establece el botón Guardar lista
+		guardar = new JButton();
+		guardar.setText("Guardar Lista");//120 +120+ 10
+		guardar.setBounds(250, 280, 120, 23); /* Establece la posición del botón Borrar lista */
+		/* Agrega al botón un ActionListener para que gestione eventos del botón */
+		guardar.addActionListener(this);
 
 		// Establece la lista gráfica de personas
 		listaNombres = new JList();
@@ -121,6 +131,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 		contenedor.add(eliminar);
 		contenedor.add(borrarLista);
 		contenedor.add(scrollLista);
+		contenedor.add(guardar);
 	}
 
 	/**
@@ -141,6 +152,10 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 		if (evento.getSource() == borrarLista) {
 			/* Si se pulsa el botón borrar lista */
 			borrarLista(); // Se invoca borrar lista
+		}
+		if (evento.getSource() == guardar) {
+			/* Si se pulsa el botón borrar lista */
+			guardarLista(); // Se invoca borrar lista
 		}
 	}
 
@@ -187,6 +202,29 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 	private void borrarLista() {
 		lista.borrarLista(); // Se eliminan todas las personas del vector
 		modelo.clear(); // Limpia el JList, la lista gráfica de personas
+	}
+	private void guardarLista() {
+		try {
+			ObjectOutputStream escribiendoFichero= new ObjectOutputStream(new FileOutputStream("lista.dat"));
+			escribiendoFichero.writeObject(lista);
+			escribiendoFichero.close();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+
+	private ListaPersonas poblarLista(){
+		ListaPersonas provisional;
+		try {
+			ObjectInputStream leyendoFichero= new ObjectInputStream(new FileInputStream("lista.dat"));
+			provisional= (ListaPersonas) leyendoFichero.readObject();
+			leyendoFichero.close();
+			return provisional;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
 	}
 
 }
