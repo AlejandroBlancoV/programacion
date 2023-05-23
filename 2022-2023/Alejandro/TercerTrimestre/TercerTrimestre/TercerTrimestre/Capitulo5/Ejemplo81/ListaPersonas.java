@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ListaPersonas implements Serializable{
-    ArrayList<Persona> listaPersonas;
+    public ArrayList<Persona> listaPersonas;
     public ListaPersonas(){
         listaPersonas= new ArrayList<>();
     }
@@ -26,4 +26,11 @@ public class ListaPersonas implements Serializable{
             System.out.println("posicion: "+i+" : "+listaPersonas.get(i).toString());
         }
     }
+    public ArrayList<Persona> getListaPersonas() {
+        return listaPersonas;
+    }
+    public void setListaPersonas(ArrayList<Persona> listaPersonas) {
+        this.listaPersonas = listaPersonas;
+    }
+    
 }

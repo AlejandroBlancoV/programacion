@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -100,21 +101,41 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 		borrarLista.setBounds(120, 280, 120, 23); /* Establece la posición del botón Borrar lista */
 		/* Agrega al botón un ActionListener para que gestione eventos del botón */
 		borrarLista.addActionListener(this);
-		// Establece el botón Guardar lista
+
+		
 		guardar = new JButton();
-		guardar.setText("Guardar Lista");//120 +120+ 10
+		guardar.setText("Guardar lista");
 		guardar.setBounds(250, 280, 120, 23); /* Establece la posición del botón Borrar lista */
 		/* Agrega al botón un ActionListener para que gestione eventos del botón */
 		guardar.addActionListener(this);
-
+		
+		
+		
+		
 		// Establece la lista gráfica de personas
 		listaNombres = new JList();
 		/* Establece que se pueda seleccionar solamente un elemento de la lista */
 		listaNombres.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		modelo = new DefaultListModel();
-		//1 Obtengo los datos de fichero
-		lista=poblarLista();
-		//2 Tengo que usar el modelo para ir añadiendo personas al JList
+		
+		//1 obtengo los datos de fichero 
+		if(poblarLista()!=null){
+			lista=poblarLista();
+		}
+		else 
+		lista= new ListaPersonas();
+		
+		//PENDIENTE DE CORRECCIÓN--> 2 tengo que usar ese modelo para ir añadiendo personas al JLIST
+		for(int i=0;i<lista.listaPersonas.size();i++) {
+			String elemento = lista.listaPersonas.get(i).nombre + "-" + lista.listaPersonas.get(i).apellidos + "-" + lista.listaPersonas.get(i).telefono + "-"
+					+ lista.listaPersonas.get(i).direccion;
+			modelo.addElement(elemento);
+			/* Se agrega el texto con los datos de la persona al JList */
+			listaNombres.setModel(modelo);
+		}
+		
+		
+
 		
 		// Establece una barra de desplazamiento vertical
 		scrollLista = new JScrollPane();
@@ -157,9 +178,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 			/* Si se pulsa el botón borrar lista */
 			borrarLista(); // Se invoca borrar lista
 		}
-		if (evento.getSource() == guardar) {
-			/* Si se pulsa el botón borrar lista */
-			guardarLista(); // Se invoca borrar lista
+		if (evento.getSource() == guardar) { 
+			guardarLista();
 		}
 	}
 
@@ -207,28 +227,42 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 		lista.borrarLista(); // Se eliminan todas las personas del vector
 		modelo.clear(); // Limpia el JList, la lista gráfica de personas
 	}
-	private void guardarLista() {
+	
+	
+	
+	
+	/**
+	 * Método que guarda en un fichero Personas.dat toda las personas de la lista
+	 */
+	private void guardarLista(){
 		try {
 			ObjectOutputStream escribiendoFichero= new ObjectOutputStream(new FileOutputStream("lista.dat"));
-			escribiendoFichero.writeObject(lista);
+			escribiendoFichero.writeObject(lista.getListaPersonas());
 			escribiendoFichero.close();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			JOptionPane.showMessageDialog(null, "Guardado correctamente","Info" , JOptionPane.INFORMATION_MESSAGE);
+		
+		}catch(Exception e){
+			JOptionPane.showMessageDialog(null, "No se pudo guardar", "Error", JOptionPane.ERROR_MESSAGE);
 		}
-
 	}
-
-	private ListaPersonas poblarLista(){
-		ListaPersonas provisional;
+	
+	
+	private ListaPersonas poblarLista() {
+		ListaPersonas provisional= new ListaPersonas();
+		//poblamos la lista con los registros que ya existen en Persona.dat
 		try {
-			ObjectInputStream leyendoFichero= new ObjectInputStream(new FileInputStream("lista.dat"));
-			provisional= (ListaPersonas) leyendoFichero.readObject();
+			FileInputStream fis= new FileInputStream("lista.dat");
+			ObjectInputStream leyendoFichero= new ObjectInputStream(fis);
+			provisional.setListaPersonas((ArrayList<Persona>) leyendoFichero.readObject());
 			leyendoFichero.close();
+			fis.close();
 			return provisional;
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			
+		}catch(Exception e){
+			JOptionPane.showMessageDialog(null, "No se pudo poblar la lista", "Error", JOptionPane.ERROR_MESSAGE);
 		}
-		return null;
+		
+		return null;		
 	}
 
 }
