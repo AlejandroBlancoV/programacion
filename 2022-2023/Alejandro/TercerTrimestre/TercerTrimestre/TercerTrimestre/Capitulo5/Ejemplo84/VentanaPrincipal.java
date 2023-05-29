@@ -95,7 +95,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 			int respuesta = fc.showOpenDialog(this); /* Se muestra el selector de directorio en pantalla */
 			if (respuesta == JFileChooser.APPROVE_OPTION) { /* Si se pulsa aceptar en el selector */
 				File directorioElegido = fc.getSelectedFile(); /* Se obtiene el directorio seleccionado */
-				String nombre = directorioElegido.getName(); /* Se obtiene el nombre del directorio */
+				String nombre = directorioElegido.getAbsolutePath(); /* Se obtiene el nombre del directorio */
 				try {
 					// Convierte los datos de los empleados en texto
 					String contenido = empleados.convertirTexto();

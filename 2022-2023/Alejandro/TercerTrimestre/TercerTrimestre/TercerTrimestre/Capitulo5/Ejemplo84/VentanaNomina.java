@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -43,7 +44,9 @@ public class VentanaNomina extends JFrame {
 		// Crea un modelo de tabla con su cabecera y matriz
 		DefaultTableModel model = new DefaultTableModel(datos, titulos);
 		tabla = new JTable(model); // Asocia el modelo a la tabla
-		tabla.setBounds(20, 50, 310, 100); /* Establece la posición de la tabla de empleados */
+
+		JScrollPane jsp= new JScrollPane(tabla);
+		jsp.setBounds(20, 50, 310, 100); /* Establece la posición de la tabla de empleados */
 		// Establece la etiqueta de total nómina mensual
 		nomina = new JLabel();
 		// Presenta el total de la nómina formateado
@@ -54,6 +57,7 @@ public class VentanaNomina extends JFrame {
 		contenedor.add(empleados);
 		contenedor.add(tabla);
 		contenedor.add(nomina);
+		contenedor.add(jsp);
 	}
 
 }
