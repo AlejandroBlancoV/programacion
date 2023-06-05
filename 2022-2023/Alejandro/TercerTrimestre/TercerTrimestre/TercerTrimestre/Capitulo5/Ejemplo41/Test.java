@@ -16,7 +16,7 @@ public class Test {
 
         CuentaAhorros cuenta1= new CuentaAhorros(tasaAhorros, saldoInicialAhorros);
         System.out.println("Ingrese cantidad a consignar");
-        float cantidadDepositar
+        float cantidadDepositar= sc.nextFloat();
     
     
 }

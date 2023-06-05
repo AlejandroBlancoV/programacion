@@ -1,4 +1,4 @@
-package TercerTrimestre.Ejemplo1;
+package Capitulo4.Ejemplo1;
 
 public class Logistica {
     private String Nombre;
